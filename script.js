@@ -134,3 +134,25 @@ function copyText(elementId) {
     alert("Nomor rekening berhasil disalin: " + text);
   });
 }
+
+// Tombol show/hide daftar rekening
+const toggleBtn = document.getElementById("toggle-btn");
+const accountList = document.getElementById("account-list");
+
+toggleBtn.addEventListener("click", () => {
+  accountList.classList.toggle("hidden");
+
+  if (accountList.classList.contains("hidden")) {
+    toggleBtn.textContent = "Lihat Rekening";
+  } else {
+    toggleBtn.textContent = "Sembunyikan Rekening";
+  }
+});
+
+// Fungsi copy nomor rekening
+function copyText(elementId) {
+  const text = document.getElementById(elementId).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Nomor rekening berhasil disalin: " + text);
+  });
+}
