@@ -45,6 +45,25 @@
   display: block;
 }
 
+/* Audio */
+#music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff4081;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-size: 16px;
+}
+
+#music-btn:hover {
+  background: #e73370;
+}
+
 /* Section Style */
 section {
   padding: 60px 20px;
@@ -246,41 +265,159 @@ section {
     opacity: 0.8;
   }
 
-/* RSVP */
-.rsvp form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 400px;
-  margin: auto;
+/* Form umum */
+form {
+  max-width: 400px; /* biar ukurannya sama kayak RSVP */
+  margin: 0 auto;   /* biar center */
+  text-align: left;
 }
 
-.rsvp input,
-.rsvp select,
-.rsvp button {
+/* Input, select, textarea konsisten */
+form input,
+form select,
+form textarea {
+  width: 100%;
   padding: 12px;
-  font-size: 1rem;
-  border-radius: 8px;
+  margin: 8px 0;
   border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
-.rsvp button {
-  background: #ff6b6b;
+#listUcapan {
+  margin-top: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.ucapan-item {
+  border: 1px solid #eee;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.ucapan-item strong {
+  color: #e91e63;
+}
+
+#loading {
+  font-size: 14px;
+  color: #555;
+}
+
+
+/* Tombol */
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff4081;
   color: white;
   border: none;
+  border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s ease;
 }
 
-.rsvp button:hover {
-  background: #e05252;
+form button:hover {
+  background-color: #e73370;
 }
+
 
 /* Maps */
 .maps iframe {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* Send Gift */
+.gift-section {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.gift-text, .gift-note {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+#toggle-btn {
+  background: #ff4081;
+  border: none;
+  padding: 10px 18px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+#toggle-btn:hover {
+  background: #e73370;
+}
+
+#account-list.hidden {
+  display: none;
+}
+
+.account-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.bank-logo {
+  width: 60px;
+  height: auto;
+}
+
+.account-info {
+  text-align: left;
+  flex: 1;
+  margin-left: 15px;
+}
+
+.account-number {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+}
+
+.account-name {
+  font-size: 14px;
+  margin: 0;
+}
+
+.copy-btn {
+  background: #4cafef;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-size: 13px;
+}
+
+.copy-btn:hover {
+  background: #3b9cd9;
 }
 
 /* Footer */
