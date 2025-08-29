@@ -47,14 +47,10 @@ musicBtn.addEventListener("click", () => {
 
 // RSVP
 const scriptURL = "https://script.google.com/macros/s/AKfycbx274HynLaF82d2e7NAN2R5-inkGxWT_l68Ruf2qqpa1tgHu0ubxTc4gIOi3Qcve0IX/exec";
-
-// Elemen HTML
 const form = document.getElementById("ucapanForm");
 const listUcapan = document.getElementById("listUcapan");
 const pagination = document.getElementById("pagination");
 const avatarColors = ["#fbc02d", "#e91e63", "#d500f9", "#2196f3", "#4caf50", "#ff5722"];
-
-// Data & Pagination
 let allUcapan = [];
 let currentPage = 1;
 const itemsPerPage = 5;
@@ -154,29 +150,84 @@ function renderUcapan() {
 
     listUcapan.appendChild(card);
   });
+  // update jumlah total komentar
+    const counter = document.getElementById("countUcapan");
+    if (counter) {
+      counter.textContent = allUcapan.length;
+    }
 }
 
 // Render tombol pagination
 function renderPagination() {
   pagination.innerHTML = "";
   const totalPages = Math.ceil(allUcapan.length / itemsPerPage);
+  const maxButtons = 6; // jumlah maksimal tombol yang tampil
+  let startPage, endPage;
 
-  for (let i = 1; i <= totalPages; i++) {
+  if (totalPages <= maxButtons) {
+    // kalau total halaman sedikit, tampilkan semua
+    startPage = 1;
+    endPage = totalPages;
+  } else {
+    if (currentPage <= 3) {
+      // dekat awal
+      startPage = 1;
+      endPage = maxButtons - 1;
+    } else if (currentPage >= totalPages - 2) {
+      // dekat akhir
+      startPage = totalPages - (maxButtons - 2);
+      endPage = totalPages;
+    } else {
+      // di tengah
+      startPage = currentPage - 2;
+      endPage = currentPage + 2;
+    }
+  }
+
+  // tombol halaman pertama
+  if (startPage > 1) {
+    createButton(1);
+    if (startPage > 2) {
+      createEllipsis();
+    }
+  }
+
+  // tombol tengah
+  for (let i = startPage; i <= endPage; i++) {
+    createButton(i);
+  }
+
+  // tombol halaman terakhir
+  if (endPage < totalPages) {
+    if (endPage < totalPages - 1) {
+      createEllipsis();
+    }
+    createButton(totalPages);
+  }
+
+  // helper buat bikin tombol
+  function createButton(page) {
     const btn = document.createElement("button");
-    btn.textContent = i;
-    btn.disabled = i === currentPage;
+    btn.textContent = page;
+    if (page === currentPage) btn.classList.add("active");
     btn.addEventListener("click", () => {
-      currentPage = i;
+      currentPage = page;
       renderUcapan();
       renderPagination();
     });
     pagination.appendChild(btn);
   }
-}
 
+  // helper buat titik-titik
+  function createEllipsis() {
+    const span = document.createElement("span");
+    span.textContent = "...";
+    span.classList.add("ellipsis");
+    pagination.appendChild(span);
+  }
+}
 // Load awal
 fetchUcapan();
-
 
 // Fungsi copy nomor rekening
 function copyText(elementId) {
