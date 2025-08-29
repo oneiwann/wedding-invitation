@@ -1,208 +1,507 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Pernikahan</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1 data-aos="zoom-in">Undangan Pernikahan</h1>
-      <p data-aos="zoom-in">Iwan & Ifah</p><br>
-      <p data-aos="zoom-in">Kepada Yth. Ibu/Bapak/Saudara/i <br>
-        <b id="guestName" data-aos="zoom-in">Tamu Undangan</b>
-      </p>
-      <!-- Tombol musik -->
-      <button id="music-btn">🎵 Putar Musik</button>
-      <audio id="bg-music" loop>
-        <source src="audio/Hanggini feat. Luthfi Aulia - Selalu Bahagia, Ya (Official Lyric Video).mp3" type="audio/mpeg">
-        Browser kamu tidak mendukung audio.
-      </audio>
-    </div>
-  </header>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 
-  <!-- Detail Section -->
-  <section class="details">
-    <h2 data-aos="zoom-in">Acara Pernikahan</h2>
-    <p data-aos="zoom-in">Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami.</p>
-    <div class="event-info">
-      <p data-aos="zoom-in"><strong>Tanggal:</strong> Senin, 20 Juli 2026</p>
-      <p data-aos="zoom-in"><strong>Tempat:</strong> Kalimeneng, Gorigondo, Pituruh, Purworejo</p>
-      <p data-aos="zoom-in"><strong>Waktu:</strong> 10:00 WIB - selesai</p>
-    </div>
-  </section>
+/* Hero Section */
+.hero {
+  position: relative;
+  background: url("images/pasangan.webp") center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
 
-  <!-- Our Story Section -->
-  <section class="timeline" id="our-story">
-  <h2 class="section-title" data-aos="zoom-in">Our Story</h2>
-  <p class="section-subtitle" data-aos="zoom-in">Perjalanan kisah cinta kami</p>
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+}
 
-  <div class="timeline-container">
-    <!-- Kenalan -->
-    <div class="timeline-item">
-      <div class="timeline-date"  data-aos="zoom-in">23 Juni 2025</div>
-      <div class="timeline-content" data-aos="zoom-in">
-        <img src="images/kenalan.webp" alt="Kenalan" data-aos="zoom-in">
-        <h3 data-aos="zoom-in">*Kenalan*</h3>
-        <p data-aos="zoom-in">Dibawah pohon cemara taman cempaka menjadi saksi kami dipertemukan.</p>
-      </div>
-    </div>
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
 
-    <!-- Tunangan -->
-    <div class="timeline-item">
-      <div class="timeline-date" data-aos="zoom-in">26 Juli 2025</div>
-      <div class="timeline-content" data-aos="zoom-in">
-        <img src="images/tunangan.webp" alt="Tunangan" data-aos="zoom-in">
-        <h3 data-aos="zoom-in">*Tunangan*</h3>
-        <p data-aos="zoom-in">Banyaknya persamaan dan kecocokan membuat kami memutuskan untuk serius dalam hubungan.</p>
-      </div>
-    </div>
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
 
-    <!-- Menikah -->
-    <div class="timeline-item">
-      <div class="timeline-date" data-aos="zoom-in">20 Juli 2026</div>
-      <div class="timeline-content" data-aos="zoom-in">
-        <img src="images/menikah.webp" alt="Menikah" data-aos="zoom-in">
-        <h3 data-aos="zoom-in">*Menikah*</h3>
-        <p data-aos="zoom-in">Dengan restu orang tua, kami melangkah ke jenjang pernikahan.</p>
-      </div>
-    </div>
-  </div>
-</section>
+.hero p {
+  font-size: 1.5rem;
+}
 
-  <!-- Quote Section -->
-  <section class="quote">
-    <div class="quote-box">
-      <span class="quote-icon top">“</span>
-      <p class="quote-text" data-aos="zoom-in">Dan di antara tanda-tanda kekuasaan-Nya diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu dapat ketenangan hati dan dijadikannya kasih sayang di antara kamu. Sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berpikir.</p>
-      <span class="quote-author" data-aos="zoom-in">(QS. Ar-Rum Ayat 21)</span>
-      <span class="quote-icon bottom">”</span>
-    </div>
-  </section>
+.hero .date {
+  font-size: 1rem;
+  margin-top: 10px;
+  display: block;
+}
 
-  <!-- Gallery Section -->
-  <section class="gallery">
-    <h2 data-aos="zoom-in">Foto Kenangan Kami</h2>
-    <p class="subtitle" data-aos="zoom-in">Beberapa kenangan indah dalam perjalanan cinta kami.</p>
-    <div class="gallery-grid">
-      <img src="images/galeri1.webp" alt="Memory 1" data-aos="zoom-in">
-      <img src="images/galeri2.webp" alt="Memory 2" data-aos="zoom-in">
-      <img src="images/galeri3.webp" alt="Memory 3" data-aos="zoom-in">
-      <img src="images/galeri4.webp" alt="Memory 4" data-aos="zoom-in">
-      <img src="images/galeri5.webp" alt="Memory 5" data-aos="zoom-in">
-      <img src="images/galeri6.webp" alt="Memory 6" data-aos="zoom-in">
-    </div>
-  </section>
+/* Audio */
+#music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff4081;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-size: 16px;
+}
 
-  <!-- Section Countdown -->
-<section class="countdown">
-  <h2 data-aos="zoom-in">Menuju Hari Bahagia</h2>
-  <p class="subtitle" data-aos="zoom-in">20 Juli 2026</p>
-  <div id="countdown" class="countdown-wrapper">
-    <div class="time-box" data-aos="zoom-in">
-      <span id="days">00</span>
-      <small>Hari</small>
-    </div>
-    <div class="time-box" data-aos="zoom-in">
-      <span id="hours">00</span>
-      <small>Jam</small>
-    </div>
-    <div class="time-box" data-aos="zoom-in">
-      <span id="minutes">00</span>
-      <small>Menit</small>
-    </div>
-    <div class="time-box" data-aos="zoom-in">
-      <span id="seconds">00</span>
-      <small>Detik</small>
-    </div>
-  </div>
-</section>
+#music-btn:hover {
+  background: #e73370;
+}
 
-<!-- RSVP -->
-<section>
-  <h2 data-aos="zoom-in">Konfirmasi Kehadiran</h2>
-  <p class="subtitle" data-aos="zoom-in">Berikan ucapannya disini ya 😊</p><br>
+/* Section Style */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
 
-  <form id="ucapanForm">
-    <input type="text" id="nama" placeholder="Nama" required />
-    <select id="kehadiran" required>
-      <option value="Hadir">Hadir</option>
-      <option value="Masih Ragu">Masih Ragu</option>
-      <option value="Tidak Hadir">Tidak Hadir</option>
-    </select>
-    <textarea id="ucapan" placeholder="Tulis ucapanmu..." required></textarea>
-    <button type="submit">Kirim</button>
-  </form>
-  <br>
-  <h3>Ucapan Tamu:</h3><br>
-  <div id="listUcapan"></div>
-  <div id="pagination"></div>
-</section>
+.details h2,
+.countdown h2,
+.rsvp h2,
+.our-story h2,
+.gallery h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #444;
+}
 
-  <!-- Send Gift -->
-  <section class="gift-section">
-    <h2 class="section-title" data-aos="zoom-in">Titip Hadiah</h2>
-    <p class="gift-text" data-aos="zoom-in">
-      Doa restu Bapak/Ibu sekalian merupakan karunia yang sangat berarti bagi kami. 
-      Dan jika memberi merupakan ungkapan tanda kasih, Bapak/Ibu dapat memberi kado 
-      secara cashless. Sebelumnya saya ucapkan terima kasih yang sebesar besarnya.
-    </p>
-    <p class="gift-note" data-aos="zoom-in">
-      Note: Terdapat pilihan untuk menyembunyikan daftar rekening, 
-      dan akan muncul ketika klik tombol
-    </p>
+.details p, .event-info p {
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #555;
+}
 
-    <!-- Tombol tampilkan/sembunyikan -->
-    <button id="toggle-btn" data-aos="zoom-in">Lihat Rekening</button>
+/* Our Story */
+.timeline {
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
 
-    <!-- List rekening -->
-    <div id="account-list" class="hidden">
-      <div class="account-card">
-        <img src="images/bca.webp" alt="BCA" class="bank-logo">
-        <div class="account-info">
-          <p class="account-number" id="acc-bca">12345678</p>
-          <p class="account-name">Iwan</p>
-        </div>
-        <button class="copy-btn" onclick="copyText('acc-bca')">📋 Copy</button>
-      </div>
+.timeline .section-title {
+  font-size: 2.5em;
+  font-family: 'Great Vibes', cursive;
+  margin-bottom: 10px;
+  color: #666;
+}
 
-      <div class="account-card">
-        <img src="images/bsi.webp" alt="Bank Sinarmas" class="bank-logo">
-        <div class="account-info">
-          <p class="account-number" id="acc-sinarmas">0982309823</p>
-          <p class="account-name">Ifah</p>
-        </div>
-        <button class="copy-btn" onclick="copyText('acc-sinarmas')">📋 Copy</button>
-      </div>
-    </div>
-  </section>
+.timeline .section-subtitle {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #666;
+}
 
-  <!-- Maps -->
-  <section class="maps">
-    <br>
-    <h2>Lokasi Acara</h2><br>
-    <p>Ikuti Disini</p><br>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d498.9833029363035!2d109.8239787169304!3d-7.649692522805684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7ab987f56f2cc9%3A0x56ecc747def1631e!2sMushola%20Nurul%20Hidayah!5e0!3m2!1sid!2sid!4v1755864268323!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </section>
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  padding-left: 20px;
+  border-left: 3px solid #f9f7f5;
+}
 
-  <footer>
-    <p>Terima kasih atas doa & restunya 💕</p>
-  </footer>
+.timeline-item {
+  margin-bottom: 50px;
+  position: relative;
+}
 
-  <script src="script.js"></script>
-  <!-- animasi scroll -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1500,
-    once: true
-  });
-</script>
-</body>
-</html>
+.timeline-item::before {
+  content: "❤";
+  position: absolute;
+  left: -33px;
+  top: 0;
+  background: #f9f7f5;
+  color: #ff5c8d;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.timeline-date {
+  font-size: 0.9em;
+  color: #aaa;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.timeline-content {
+  background: #f9f7f5;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #444;
+}
+
+.timeline-content img {
+  max-width: 150px;
+  margin-bottom: 15px;
+}
+
+/* Quote */
+.quote {
+  background: #f9f7f5;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.quote-box {
+  position: relative;
+  max-width: 700px;
+  background: white;
+  border: 1px solid #eee;
+  padding: 40px 30px;
+  text-align: center;
+  font-family: "Georgia", serif;
+  color: #444;
+}
+
+.quote-icon {
+  font-size: 2.5rem;
+  color: #b66b4d;
+  display: block;
+}
+
+.quote-icon.top {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.quote-icon.bottom {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.quote-text {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin: 20px 0;
+  font-weight: 500;
+}
+
+.quote-author {
+  font-size: 0.9rem;
+  color: #888;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Gallery */
+.gallery .subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Countdown */
+.countdown {
+    background: #f9f7f5;
+    text-align: center;
+    margin: 50px 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .countdown-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .time-box {
+    background: #000;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 70px;
+  }
+
+  .time-box span {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+  }
+
+  .time-box small {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+
+  /* === Form umum === */
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  form input,
+  form select,
+  form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  /* Tombol */
+  form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  form button:hover {
+    background-color: #e73370;
+  }
+
+  /* === List Ucapan === */
+  #listUcapan {
+    margin-top: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .ucapan-item {
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: #fafafa;
+  }
+  .ucapan-item strong {
+    color: #e91e63;
+  }
+
+  /* === Pagination === */
+  #pagination {
+    margin-top: 15px;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+  }
+  #pagination button {
+    padding: 5px 10px;
+    border: none;
+    background: #ff4081;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #pagination button.active {
+    background: #e73370;
+  }
+
+
+/* Maps */
+.maps iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Send Gift */
+.gift-section {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.gift-text, .gift-note {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+#toggle-btn {
+  background: #ff4081;
+  border: none;
+  padding: 10px 18px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+#toggle-btn:hover {
+  background: #e73370;
+}
+
+#account-list.hidden {
+  display: none;
+}
+
+.account-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.bank-logo {
+  width: 60px;
+  height: auto;
+}
+
+.account-info {
+  text-align: left;
+  flex: 1;
+  margin-left: 15px;
+}
+
+.account-number {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+}
+
+.account-name {
+  font-size: 14px;
+  margin: 0;
+}
+
+.copy-btn {
+  background: #4cafef;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-size: 13px;
+}
+
+.copy-btn:hover {
+  background: #3b9cd9;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  padding: 23px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 1.2rem; }
+  .story-container { flex-direction: column; gap: 20px; }
+}
+
+.ucapan-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.ucapan-content {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ucapan-nama {
+  font-weight: bold;
+  font-size: 16px;
+  color: #e91e63;
+  margin-right: 4px;
+}
+
+.ucapan-header {
+  margin-bottom: 6px;
+}
+
+.ucapan-header span {
+  font-size: 14px;
+  color: #555;
+}
+
+.ucapan-content p {
+  font-size: 14px;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.ucapan-waktu {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  margin-top: 6px;
+}
+
