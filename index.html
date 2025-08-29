@@ -6,6 +6,7 @@
   <title>Undangan Pernikahan</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Hero Section -->
@@ -13,7 +14,10 @@
     <div class="overlay"></div>
     <div class="hero-content">
       <h1 data-aos="zoom-in">Undangan Pernikahan</h1>
-      <p data-aos="zoom-in">Iwan & Ifah</p>
+      <p data-aos="zoom-in">Iwan & Ifah</p><br>
+      <p data-aos="zoom-in">Kepada Yth. Ibu/Bapak/Saudara/i <br>
+        <b id="guestName" data-aos="zoom-in">Tamu Undangan</b>
+      </p>
       <!-- Tombol musik -->
       <button id="music-btn">🎵 Putar Musik</button>
       <audio id="bg-music" loop>
@@ -43,8 +47,8 @@
     <!-- Kenalan -->
     <div class="timeline-item">
       <div class="timeline-date"  data-aos="zoom-in">23 Juni 2025</div>
-      <div class="timeline-content">
-        <img src="images/kenalan.webp" alt="Kenalan">
+      <div class="timeline-content" data-aos="zoom-in">
+        <img src="images/kenalan.webp" alt="Kenalan" data-aos="zoom-in">
         <h3 data-aos="zoom-in">*Kenalan*</h3>
         <p data-aos="zoom-in">Dibawah pohon cemara taman cempaka menjadi saksi kami dipertemukan.</p>
       </div>
@@ -53,8 +57,8 @@
     <!-- Tunangan -->
     <div class="timeline-item">
       <div class="timeline-date" data-aos="zoom-in">26 Juli 2025</div>
-      <div class="timeline-content">
-        <img src="images/tunangan.webp" alt="Tunangan">
+      <div class="timeline-content" data-aos="zoom-in">
+        <img src="images/tunangan.webp" alt="Tunangan" data-aos="zoom-in">
         <h3 data-aos="zoom-in">*Tunangan*</h3>
         <p data-aos="zoom-in">Banyaknya persamaan dan kecocokan membuat kami memutuskan untuk serius dalam hubungan.</p>
       </div>
@@ -63,8 +67,8 @@
     <!-- Menikah -->
     <div class="timeline-item">
       <div class="timeline-date" data-aos="zoom-in">20 Juli 2026</div>
-      <div class="timeline-content">
-        <img src="images/menikah.webp" alt="Menikah">
+      <div class="timeline-content" data-aos="zoom-in">
+        <img src="images/menikah.webp" alt="Menikah" data-aos="zoom-in">
         <h3 data-aos="zoom-in">*Menikah*</h3>
         <p data-aos="zoom-in">Dengan restu orang tua, kami melangkah ke jenjang pernikahan.</p>
       </div>
@@ -98,22 +102,22 @@
 
   <!-- Section Countdown -->
 <section class="countdown">
-  <h2>Menuju Hari Bahagia</h2>
-  <p class="subtitle">20 Juli 2026</p>
+  <h2 data-aos="zoom-in">Menuju Hari Bahagia</h2>
+  <p class="subtitle" data-aos="zoom-in">20 Juli 2026</p>
   <div id="countdown" class="countdown-wrapper">
-    <div class="time-box">
+    <div class="time-box" data-aos="zoom-in">
       <span id="days">00</span>
       <small>Hari</small>
     </div>
-    <div class="time-box">
+    <div class="time-box" data-aos="zoom-in">
       <span id="hours">00</span>
       <small>Jam</small>
     </div>
-    <div class="time-box">
+    <div class="time-box" data-aos="zoom-in">
       <span id="minutes">00</span>
       <small>Menit</small>
     </div>
-    <div class="time-box">
+    <div class="time-box" data-aos="zoom-in">
       <span id="seconds">00</span>
       <small>Detik</small>
     </div>
@@ -121,40 +125,41 @@
 </section>
 
 <!-- RSVP -->
-<section class="rsvp">
-  <h2>Konfirmasi Kehadiran</h2>
+<section>
+  <h2 data-aos="zoom-in">Konfirmasi Kehadiran</h2>
   <p class="subtitle" data-aos="zoom-in">Berikan ucapannya disini ya 😊</p><br>
+
   <form id="ucapanForm">
     <input type="text" id="nama" placeholder="Nama" required />
     <select id="kehadiran" required>
       <option value="Hadir">Hadir</option>
+      <option value="Masih Ragu">Masih Ragu</option>
       <option value="Tidak Hadir">Tidak Hadir</option>
     </select>
     <textarea id="ucapan" placeholder="Tulis ucapanmu..." required></textarea>
     <button type="submit">Kirim</button>
   </form>
   <br>
-  <h3>Ucapan Tamu:</h3>
-  <br>
+  <h3>Ucapan Tamu:</h3><br>
   <div id="listUcapan"></div>
-  <div id="loading" style="text-align:center; padding:10px; display:none;">Loading...</div>
+  <div id="pagination"></div>
 </section>
 
   <!-- Send Gift -->
   <section class="gift-section">
-    <h2 class="section-title">Titip Hadiah</h2>
-    <p class="gift-text">
+    <h2 class="section-title" data-aos="zoom-in">Titip Hadiah</h2>
+    <p class="gift-text" data-aos="zoom-in">
       Doa restu Bapak/Ibu sekalian merupakan karunia yang sangat berarti bagi kami. 
       Dan jika memberi merupakan ungkapan tanda kasih, Bapak/Ibu dapat memberi kado 
       secara cashless. Sebelumnya saya ucapkan terima kasih yang sebesar besarnya.
     </p>
-    <p class="gift-note">
+    <p class="gift-note" data-aos="zoom-in">
       Note: Terdapat pilihan untuk menyembunyikan daftar rekening, 
       dan akan muncul ketika klik tombol
     </p>
 
     <!-- Tombol tampilkan/sembunyikan -->
-    <button id="toggle-btn">Lihat Rekening</button>
+    <button id="toggle-btn" data-aos="zoom-in">Lihat Rekening</button>
 
     <!-- List rekening -->
     <div id="account-list" class="hidden">
@@ -180,8 +185,9 @@
 
   <!-- Maps -->
   <section class="maps">
-    <h2>Lokasi Acara</h2>
-    <p>Ikuti Disini</p>
+    <br>
+    <h2>Lokasi Acara</h2><br>
+    <p>Ikuti Disini</p><br>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d498.9833029363035!2d109.8239787169304!3d-7.649692522805684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7ab987f56f2cc9%3A0x56ecc747def1631e!2sMushola%20Nurul%20Hidayah!5e0!3m2!1sid!2sid!4v1755864268323!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
@@ -194,7 +200,7 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({
-    duration: 1000,
+    duration: 1500,
     once: true
   });
 </script>
