@@ -46,7 +46,7 @@ musicBtn.addEventListener("click", () => {
 });
 
 // RSVP
-const scriptURL = "https://script.google.com/macros/s/AKfycbxN9jNsDspJA3oC24oC2M_V4tMMkAV7-_QGirEtXbIoTXF4TiKbgsQA3-G2_OLWEaeo/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbx274HynLaF82d2e7NAN2R5-inkGxWT_l68Ruf2qqpa1tgHu0ubxTc4gIOi3Qcve0IX/exec";
 
 // Elemen HTML
 const form = document.getElementById("ucapanForm");
