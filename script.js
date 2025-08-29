@@ -59,29 +59,28 @@ let allUcapan = [];
 let currentPage = 1;
 const itemsPerPage = 5;
 
-// Kirim data ke Google Apps Script
-form.addEventListener("submit", async (e) => {
+// submit form
+document.getElementById("ucapanForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
   const data = {
     nama: document.getElementById("nama").value,
     kehadiran: document.getElementById("kehadiran").value,
-    ucapan: document.getElementById("ucapan").value,
+    ucapan: document.getElementById("ucapan").value
   };
 
-  try {
-    await fetch(scriptURL, {
-      method: "POST",
-      body: new URLSearchParams(data),
-    });
-    alert("Terima kasih, ucapanmu berhasil dikirim!");
-
-    form.reset();
-    fetchUcapan(); // reload list
-  } catch (err) {
-    alert("Gagal mengirim ucapan, coba lagi.");
-    console.error(err);
-  }
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.result === "success") {
+        document.getElementById("ucapanForm").reset();
+        fetchUcapan();
+      }
+    })
+    .catch((err) => console.error("Error:", err));
 });
 
 // Ambil data ucapan
