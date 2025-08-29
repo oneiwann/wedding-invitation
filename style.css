@@ -265,66 +265,76 @@ section {
     opacity: 0.8;
   }
 
-/* Form umum */
-form {
-  max-width: 400px; /* biar ukurannya sama kayak RSVP */
-  margin: 0 auto;   /* biar center */
-  text-align: left;
-}
+  /* === Form umum === */
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+  }
 
-/* Input, select, textarea konsisten */
-form input,
-form select,
-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  box-sizing: border-box;
-}
+  form input,
+  form select,
+  form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
 
-#listUcapan {
-  margin-top: 20px;
-  max-width: 400px;
-  margin: 0 auto;
-}
+  /* Tombol */
+  form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  form button:hover {
+    background-color: #e73370;
+  }
 
-.ucapan-item {
-  border: 1px solid #eee;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  background: #fafafa;
-}
+  /* === List Ucapan === */
+  #listUcapan {
+    margin-top: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .ucapan-item {
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: #fafafa;
+  }
+  .ucapan-item strong {
+    color: #e91e63;
+  }
 
-.ucapan-item strong {
-  color: #e91e63;
-}
-
-#loading {
-  font-size: 14px;
-  color: #555;
-}
-
-
-/* Tombol */
-form button {
-  width: 100%;
-  padding: 12px;
-  background-color: #ff4081;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-form button:hover {
-  background-color: #e73370;
-}
+  /* === Pagination === */
+  #pagination {
+    margin-top: 15px;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+  }
+  #pagination button {
+    padding: 5px 10px;
+    border: none;
+    background: #ff4081;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #pagination button.active {
+    background: #e73370;
+  }
 
 
 /* Maps */
@@ -435,3 +445,63 @@ footer {
   .hero p { font-size: 1.2rem; }
   .story-container { flex-direction: column; gap: 20px; }
 }
+
+.ucapan-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.ucapan-content {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ucapan-nama {
+  font-weight: bold;
+  font-size: 16px;
+  color: #e91e63;
+  margin-right: 4px;
+}
+
+.ucapan-header {
+  margin-bottom: 6px;
+}
+
+.ucapan-header span {
+  font-size: 14px;
+  color: #555;
+}
+
+.ucapan-content p {
+  font-size: 14px;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.ucapan-waktu {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  margin-top: 6px;
+}
+
