@@ -39,7 +39,7 @@ musicBtn.addEventListener("click", () => {
 });
 
 // RSVP
-const scriptURL = "https://script.google.com/macros/s/AKfycbwhfYvZiqQEy0cfNFT4NIn8TmvVvpO8tYkDHl-W1PxSz8ujzxx2WoBUXRdh_C6ZvtQ/exec"; 
+const scriptURL = "https://script.google.com/macros/s/AKfycbxN9jNsDspJA3oC24oC2M_V4tMMkAV7-_QGirEtXbIoTXF4TiKbgsQA3-G2_OLWEaeo/exec"; 
 const itemsPerPage = 8; // jumlah data per load
 let currentIndex = 0;
 let allData = [];
