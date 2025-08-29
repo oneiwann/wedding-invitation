@@ -316,6 +316,65 @@ section {
   .ucapan-item strong {
     color: #e91e63;
   }
+  .ucapan-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-transform: uppercase;
+  }
+
+  .ucapan-content {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left;
+  }
+
+  .ucapan-nama {
+    font-weight: bold;
+    font-size: 16px;
+    color: #e91e63;
+    margin-right: 4px;
+  }
+
+  .ucapan-header {
+    margin-bottom: 6px;
+  }
+
+  .ucapan-header span {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .ucapan-content p {
+    font-size: 14px;
+    margin: 6px 0;
+    line-height: 1.4;
+  }
+
+  .ucapan-waktu {
+    display: block;
+    font-size: 10px;
+    color: #c9c9c9;
+    margin-top: 6px;
+  }
 
   /* === Pagination === */
   #pagination {
@@ -445,63 +504,3 @@ footer {
   .hero p { font-size: 1.2rem; }
   .story-container { flex-direction: column; gap: 20px; }
 }
-
-.ucapan-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  color: #fff;
-  font-weight: bold;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  text-transform: uppercase;
-}
-
-.ucapan-content {
-  flex: 1;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  padding: 12px 16px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.ucapan-nama {
-  font-weight: bold;
-  font-size: 16px;
-  color: #e91e63;
-  margin-right: 4px;
-}
-
-.ucapan-header {
-  margin-bottom: 6px;
-}
-
-.ucapan-header span {
-  font-size: 14px;
-  color: #555;
-}
-
-.ucapan-content p {
-  font-size: 14px;
-  margin: 6px 0;
-  line-height: 1.4;
-}
-
-.ucapan-waktu {
-  display: block;
-  font-size: 12px;
-  color: #777;
-  margin-top: 6px;
-}
-
