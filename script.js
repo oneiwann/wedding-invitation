@@ -1,3 +1,10 @@
+// Menampilkan Nama Tamu
+const params = new URLSearchParams(window.location.search);
+  const guestName = params.get("to");
+  if (guestName) {
+    document.getElementById("guestName").textContent = guestName;
+  }
+
 // Countdown Timer
 const eventDate = new Date("Jul 20, 2026 10:00:00").getTime();
 
@@ -39,93 +46,138 @@ musicBtn.addEventListener("click", () => {
 });
 
 // RSVP
-const scriptURL = "https://script.google.com/macros/s/AKfycbxN9jNsDspJA3oC24oC2M_V4tMMkAV7-_QGirEtXbIoTXF4TiKbgsQA3-G2_OLWEaeo/exec"; 
-const itemsPerPage = 8; // jumlah data per load
-let currentIndex = 0;
-let allData = [];
-let isLoading = false;
+const scriptURL = "https://script.google.com/macros/s/AKfycbxN9jNsDspJA3oC24oC2M_V4tMMkAV7-_QGirEtXbIoTXF4TiKbgsQA3-G2_OLWEaeo/exec";
 
-// submit form
-document.getElementById("ucapanForm").addEventListener("submit", (e) => {
+// Elemen HTML
+const form = document.getElementById("ucapanForm");
+const listUcapan = document.getElementById("listUcapan");
+const pagination = document.getElementById("pagination");
+const avatarColors = ["#fbc02d", "#e91e63", "#d500f9", "#2196f3", "#4caf50", "#ff5722"];
+
+// Data & Pagination
+let allUcapan = [];
+let currentPage = 1;
+const itemsPerPage = 5;
+
+// Kirim data ke Google Apps Script
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const data = {
     nama: document.getElementById("nama").value,
     kehadiran: document.getElementById("kehadiran").value,
-    ucapan: document.getElementById("ucapan").value
+    ucapan: document.getElementById("ucapan").value,
   };
 
-  fetch(scriptURL, {
-    method: "POST",
-    body: JSON.stringify(data)
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.result === "success") {
-        document.getElementById("ucapanForm").reset();
-        reloadUcapan();
-      }
-    })
-    .catch((err) => console.error("Error:", err));
-});
+  try {
+    await fetch(scriptURL, {
+      method: "POST",
+      body: new URLSearchParams(data),
+    });
+    alert("Terima kasih, ucapanmu berhasil dikirim!");
 
-// load ulang data (reset)
-function reloadUcapan() {
-  currentIndex = 0;
-  document.getElementById("listUcapan").innerHTML = "";
-  loadUcapan();
-}
-
-// ambil semua data dari sheet
-function loadUcapan() {
-  if (isLoading) return;
-  isLoading = true;
-  document.getElementById("loading").style.display = "block";
-
-  fetch(scriptURL)
-    .then((res) => res.json())
-    .then((data) => {
-      allData = data.reverse(); // biar terbaru di atas
-      renderNext();
-    })
-    .catch((err) => console.error("Error load data:", err));
-}
-
-// render sebagian data (lazy load)
-function renderNext() {
-  const container = document.getElementById("listUcapan");
-  const slice = allData.slice(currentIndex, currentIndex + itemsPerPage);
-
-  slice.forEach((row) => {
-    const el = document.createElement("div");
-    el.classList.add("ucapan-item");
-    el.innerHTML = `
-      <strong>${row.nama}</strong> (${row.kehadiran})<br>
-      ${row.ucapan}<br>
-      <small>${new Date(row.waktu).toLocaleString()}</small>
-    `;
-    container.appendChild(el);
-  });
-
-  currentIndex += slice.length;
-  isLoading = false;
-  document.getElementById("loading").style.display = "none";
-}
-
-// infinite scroll listener
-window.addEventListener("scroll", () => {
-  if (
-    window.innerHeight + window.scrollY >=
-    document.body.offsetHeight - 100
-  ) {
-    if (currentIndex < allData.length) {
-      renderNext();
-    }
+    form.reset();
+    fetchUcapan(); // reload list
+  } catch (err) {
+    alert("Gagal mengirim ucapan, coba lagi.");
+    console.error(err);
   }
 });
 
-// pertama kali load
-loadUcapan();
+// Ambil data ucapan
+async function fetchUcapan() {
+  try {
+    const res = await fetch(scriptURL);
+    const data = await res.json();
+    allUcapan = data.sort((a, b) => new Date(b.waktu) - new Date(a.waktu));
+    currentPage = 1; // reset ke halaman pertama
+    renderUcapan();
+    renderPagination();
+  } catch (err) {
+    console.error("Gagal mengambil data ucapan", err);
+  }
+}
+
+// Render ucapan sesuai halaman
+function renderUcapan() {
+  listUcapan.innerHTML = "";
+
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const paginated = allUcapan.slice(start, end);
+
+  paginated.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "ucapan-card";
+
+    // avatar huruf pertama nama
+    const avatar = document.createElement("div");
+    avatar.className = "avatar";
+    avatar.textContent = item.nama.charAt(0).toUpperCase();
+    // kasih warna random
+    avatar.style.background = avatarColors[Math.floor(Math.random() * avatarColors.length)];
+
+    const content = document.createElement("div");
+    content.className = "ucapan-content";
+
+    const header = document.createElement("div");
+    header.className = "ucapan-header";
+
+    const nama = document.createElement("span");
+    nama.className = "ucapan-nama";
+    nama.textContent = item.nama;
+
+    const kehadiran = document.createElement("span");
+    kehadiran.innerHTML = ` (${item.kehadiran})`;
+
+    const pesan = document.createElement("p");
+    pesan.textContent = item.ucapan;
+
+    const waktu = document.createElement("span");
+    waktu.className = "ucapan-waktu";
+    waktu.textContent = new Date(item.waktu).toLocaleString("id-ID", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+
+    header.appendChild(nama);
+    header.appendChild(kehadiran);
+
+    content.appendChild(header);
+    content.appendChild(pesan);
+    content.appendChild(waktu);
+
+    card.appendChild(avatar);
+    card.appendChild(content);
+
+    listUcapan.appendChild(card);
+  });
+}
+
+// Render tombol pagination
+function renderPagination() {
+  pagination.innerHTML = "";
+  const totalPages = Math.ceil(allUcapan.length / itemsPerPage);
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.disabled = i === currentPage;
+    btn.addEventListener("click", () => {
+      currentPage = i;
+      renderUcapan();
+      renderPagination();
+    });
+    pagination.appendChild(btn);
+  }
+}
+
+// Load awal
+fetchUcapan();
+
 
 // Fungsi copy nomor rekening
 function copyText(elementId) {
@@ -135,7 +187,6 @@ function copyText(elementId) {
   });
 }
 
-// Tombol show/hide daftar rekening
 const toggleBtn = document.getElementById("toggle-btn");
 const accountList = document.getElementById("account-list");
 
@@ -149,7 +200,6 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-// Fungsi copy nomor rekening
 function copyText(elementId) {
   const text = document.getElementById(elementId).innerText;
   navigator.clipboard.writeText(text).then(() => {
