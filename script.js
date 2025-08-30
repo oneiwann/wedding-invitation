@@ -1,8 +1,14 @@
 // Menampilkan Nama Tamu
-const params = new URLSearchParams(window.location.search);
-  const guestName = params.get("to");
-  if (guestName) {
-    document.getElementById("guestName").textContent = guestName;
+function capitalizeWords(str) {
+    return str.replace(/\b\w/g, char => char.toUpperCase());
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get("to");
+
+  if (slug) {
+    const displayName = capitalizeWords(slug.replace(/-/g, " "));
+    document.getElementById("guestName").textContent = displayName;
   }
 
 // Countdown Timer
