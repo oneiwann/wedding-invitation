@@ -1,15 +1,25 @@
 // Menampilkan Nama Tamu
 function capitalizeWords(str) {
-    return str.replace(/\b\w/g, char => char.toUpperCase());
-  }
+  return str.replace(/\b\w/g, char => char.toUpperCase());
+}
 
-  const params = new URLSearchParams(window.location.search);
-  const slug = params.get("to");
+const params = new URLSearchParams(window.location.search);
+const slug = params.get("to");
 
-  if (slug) {
-    const displayName = capitalizeWords(slug.replace(/-/g, " "));
-    document.getElementById("guestName").textContent = displayName;
+if (slug) {
+  const displayName = capitalizeWords(slug.replace(/-/g, " "));
+  
+  // Tampilkan ke opening
+  document.getElementById("guestName").textContent = displayName;
+
+  // Auto isi ke input nama
+  const nameInput = document.getElementById("nama");
+  if (nameInput) {
+    nameInput.value = displayName;
+    // Kalau mau dikunci biar nggak bisa diedit:
+    // nameInput.readOnly = true;
   }
+}
 
 // Countdown Timer
 const eventDate = new Date("Jul 20, 2026 10:00:00").getTime();
