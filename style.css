@@ -116,7 +116,6 @@
   padding: 20px;
 }
 
-/* Bungkus iframe biar ada radius & shadow */
 .map-container {
   width: 100%;
   max-width: 400px; /* biar ga terlalu lebar */
@@ -289,29 +288,40 @@ section {
 }
 
 /* Gallery */
-.gallery .subtitle {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 30px;
+/* Batas lebar biar tidak terlalu melebar di monitor besar */
+.container {
+  max-width: 768px;  /* bisa diganti 900px kalau mau lebih lebar */
+  margin: 0 auto;    /* biar center */
+  padding: 0 16px;   /* kasih ruang kiri kanan biar lega */
 }
 
+/* Grid untuk galeri */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
+/* Responsif di tablet */
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Responsif di desktop */
+@media (min-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Style gambar biar rapi */
 .gallery-grid img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.05);
+  height: auto;
+  border-radius: 12px;
+  display: block;
 }
 
 /* Countdown */
