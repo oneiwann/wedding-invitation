@@ -109,18 +109,22 @@
   </section>
 
   <!-- Gallery Section -->
-  <section class="gallery">
-    <h2 data-aos="zoom-in">Foto Kenangan Kami</h2>
-    <p class="subtitle" data-aos="zoom-in">Beberapa kenangan indah dalam perjalanan cinta kami.</p>
-    <div class="gallery-grid">
-      <img src="images/galeri1.webp" alt="Memory 1" data-aos="zoom-in">
-      <img src="images/galeri2.webp" alt="Memory 2" data-aos="zoom-in">
-      <img src="images/galeri3.webp" alt="Memory 3" data-aos="zoom-in">
-      <img src="images/galeri4.webp" alt="Memory 4" data-aos="zoom-in">
-      <img src="images/galeri5.webp" alt="Memory 5" data-aos="zoom-in">
-      <img src="images/galeri6.webp" alt="Memory 6" data-aos="zoom-in">
-    </div>
-  </section>
+  <div class="container">
+    <section class="gallery">
+      <h2 data-aos="zoom-in">Our Gallery</h2>
+      <p class="subtitle" data-aos="zoom-in">
+        Beberapa kenangan indah dalam perjalanan cinta kami.
+      </p><br>
+      <div class="gallery-grid">
+        <img src="images/galeri1.webp" alt="Memory 1" class="item1" data-aos="zoom-in">
+        <img src="images/galeri2.webp" alt="Memory 2" class="item2" data-aos="zoom-in">
+        <img src="images/galeri3.webp" alt="Memory 3" class="item3" data-aos="zoom-in">
+        <img src="images/galeri4.webp" alt="Memory 4" class="item4" data-aos="zoom-in">
+        <img src="images/galeri5.webp" alt="Memory 5" class="item5" data-aos="zoom-in">
+        <img src="images/galeri6.webp" alt="Memory 6" class="item6" data-aos="zoom-in">
+      </div>
+    </section>
+  </div>
 
   <!-- Section Countdown -->
 <section class="countdown">
@@ -150,7 +154,7 @@
 <section>
   <h2 data-aos="zoom-in">Konfirmasi Kehadiran</h2>
   <p class="subtitle" data-aos="zoom-in">Berikan ucapannya disini ya 😊</p><br>
-  <form id="ucapanForm">
+  <form id="ucapanForm" data-aos="zoom-in">
     <input type="text" id="nama" placeholder="Nama" required />
     <select id="kehadiran" required>
       <option value="Hadir">Hadir</option>
@@ -161,9 +165,9 @@
     <button type="submit">Kirim</button>
   </form>
   <br>
- <h3>Ucapan Tamu (<span id="countUcapan">0</span>)</h3><br>
-  <div id="listUcapan"></div>
-  <div id="pagination"></div>
+ <h3 data-aos="zoom-in">Ucapan Tamu (<span id="countUcapan">0</span>)</h3><br>
+  <div id="listUcapan" data-aos="zoom-in"></div>
+  <div id="pagination" data-aos="zoom-in"></div>
 </section>
 
   <!-- Send Gift -->
@@ -178,10 +182,8 @@
       Note: Terdapat pilihan untuk menyembunyikan daftar rekening, 
       dan akan muncul ketika klik tombol
     </p>
-
     <!-- Tombol tampilkan/sembunyikan -->
     <button id="toggle-btn" data-aos="zoom-in">Lihat Rekening</button>
-
     <!-- List rekening -->
     <div id="account-list" class="hidden">
       <div class="account-card">
@@ -192,7 +194,6 @@
         </div>
         <button class="copy-btn" onclick="copyText('acc-bca')">📋 Copy</button>
       </div>
-
       <div class="account-card">
         <img src="images/bsi.webp" alt="Bank Sinarmas" class="bank-logo">
         <div class="account-info">
@@ -201,6 +202,14 @@
         </div>
         <button class="copy-btn" onclick="copyText('acc-sinarmas')">📋 Copy</button>
       </div>
+    </div>
+  </section>
+
+  <!-- Akhir -->
+  <section>
+    <div class="gift-section" data-aos="zoom-in">
+      <h2 class="section-title" data-aos="zoom-in">Terimakasih Atas Doa dan Restunya</h2><br>
+      <p>Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do’a restu kepada kami</p>
     </div>
   </section>
 
