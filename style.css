@@ -70,6 +70,7 @@
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 10px;
+  font-family: 'Great Vibes', cursive;
 }
 
 .event p {
@@ -174,6 +175,10 @@ section {
   color: #fff;
   padding: 60px 20px;
   text-align: center;
+}
+
+.gallery h2 {
+  font-family: 'Great Vibes', cursive;
 }
 
 .timeline .section-title {
@@ -331,6 +336,9 @@ section {
     margin: 50px 0;
     font-family: Arial, sans-serif;
   }
+.countdown h2 {
+  font-family: 'Great Vibes', cursive;
+}
 
   .countdown-wrapper {
     display: flex;
@@ -393,7 +401,9 @@ section {
   form button:hover {
     background-color: #e73370;
   }
-
+.rsvp h2 {
+  font-family: 'Great Vibes', cursive;
+}
   /* === List Ucapan === */
   #listUcapan {
     margin-top: 20px;
