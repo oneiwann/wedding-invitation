@@ -11,18 +11,36 @@ if (slug) {
   
   // Tampilkan ke opening
   document.getElementById("guestName").textContent = displayName;
+  document.getElementById("namaTamu").textContent = displayName;
 
   // Auto isi ke input nama
   const nameInput = document.getElementById("nama");
   if (nameInput) {
     nameInput.value = displayName;
-    // Kalau mau dikunci biar nggak bisa diedit:
-    // nameInput.readOnly = true;
   }
 }
 
+// hidecover
+const cover = document.getElementById("cover");
+const mainContent = document.getElementById("main-content");
+const song = document.getElementById("song");
+
+function openInvitation() {
+  cover.style.opacity = "0";
+  setTimeout(() => {
+    cover.style.display = "none";
+    mainContent.classList.remove("hidden");
+    song.play();
+  }, 1000);
+}
+
+document.body.addEventListener("click", () => {
+  song.play();
+});
+
+
 // Countdown Timer
-const eventDate = new Date("Jul 20, 2026 10:00:00").getTime();
+const eventDate = new Date("Oct 01, 2025 10:00:00").getTime();
 
   const countdown = setInterval(function () {
     const now = new Date().getTime();
@@ -43,23 +61,6 @@ const eventDate = new Date("Jul 20, 2026 10:00:00").getTime();
       document.getElementById("countdown").innerHTML = "<h3>Acara Sedang Berlangsung 🎉</h3>";
     }
   }, 1000);
-
-// Backsound Audio
-const musicBtn = document.getElementById("music-btn");
-const bgMusic = document.getElementById("bg-music");
-
-let isPlaying = false;
-
-musicBtn.addEventListener("click", () => {
-  if (isPlaying) {
-    bgMusic.pause();
-    musicBtn.textContent = "🎵 Putar Musik";
-  } else {
-    bgMusic.play();
-    musicBtn.textContent = "⏸️ Jeda Musik";
-  }
-  isPlaying = !isPlaying;
-});
 
 // RSVP
 const scriptURL = "https://script.google.com/macros/s/AKfycbx274HynLaF82d2e7NAN2R5-inkGxWT_l68Ruf2qqpa1tgHu0ubxTc4gIOi3Qcve0IX/exec";
