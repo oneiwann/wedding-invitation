@@ -74,7 +74,7 @@ section{
 /* Hero Section */
 .hero {
   position: relative;
-  background: url("images/pasangan.jpg") center/cover no-repeat;
+  background: url("images/pasangan.webp") center/cover no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
