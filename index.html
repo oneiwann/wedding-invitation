@@ -9,94 +9,135 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Musik -->
+  <audio id="song" loop>
+    <source src="audioARVIAN DWI  SATU SHAF DIBELAKANGKU (OFFICIAL MUSIC VIDEO 2022).mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Cover -->
+  <div id="cover" class="cover">
+    <div class="cover-content">
+      <h4>The Wedding Of</h4>
+      <img src="images/wedding.jpg" alt="Wedding Cover" class="cover-img">
+      <h1 class="section-title">Danang & Yeni</h1>
+      <p>Kepada Yth.<br>Bapak/Ibu/Saudara/i</p><br>
+      <h2 id="guestName">Tamu Undangan</h2><br>
+      <p>Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.</p>
+      <button class="btn" onclick="openInvitation()">Buka Undangan</button>
+      <p class="note">* Mohon maaf apabila ada kesalahan penulisan nama/gelar</p>
+    </div>
+  </div>
+
   <!-- Hero Section -->
   <header class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1 data-aos="zoom-in">Iwan & Ifah</h1>
+      <h4>The Wedding Of</h4>
+      <h1 data-aos="zoom-in">Danang & Yeni</h1>
       <p data-aos="zoom-in">Yth. Bapak/Ibu/Saudara/i<br>
-        <h3 id="guestName" data-aos="zoom-in">Tamu Undangan</h3>
+        <h2 id="namaTamu" data-aos="zoom-in">Tamu Undangan</h2>
       </p>
-      <!-- Tombol musik -->
-      <button id="music-btn">🎵 Putar Musik</button>
-      <audio id="bg-music" loop>
-        <source src="audio/Hanggini feat. Luthfi Aulia - Selalu Bahagia, Ya (Official Lyric Video).mp3" type="audio/mpeg">
-        Browser kamu tidak mendukung audio.
-      </audio>
     </div>
   </header>
+  <div class="spacer"></div>
 
-  <!-- Detail Section -->
-  <section class="event">
-    <div class="event-box">
-      <h2 data-aos="zoom-in">Akad Nikah</h2>
-      <p data-aos="zoom-in">Senin, 20 Juli 2026</p>
-      <span class="time" data-aos="zoom-in">Pukul 08:30 WIB</span>
-    </div>
-    <div class="event-box">
-      <h2 data-aos="zoom-in">Resepsi</h2>
-      <div class="date-box">
-        <span class="day" data-aos="zoom-in">SENIN</span>
-        <span class="number" data-aos="zoom-in">20</span>
-        <span class="month" data-aos="zoom-in">JULI 2026</span>
-      </div>
-      <span class="time" data-aos="zoom-in">Pukul 10:00 – 14:00 WIB</span>
-    </div>
-    <div class="event-box">
-      <h3 data-aos="zoom-in">Rumah Mempelai</h3>
-      <p data-aos="zoom-in">Ds. Kalimeneng</p>
-      <p data-aos="zoom-in">Kec. Pituruh, Kab. Purworejo</p>
-      <div class="maps">
-          <div class="map-container" data-aos="zoom-in">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d498.9833029363035!2d109.8239787169304!3d-7.649692522805684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7ab987f56f2cc9%3A0x56ecc747def1631e!2sMushola%20Nurul%20Hidayah!5e0!3m2!1sid!2sid!4v1755864268323!5m2!1sid!2sid" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
-          <a href="https://maps.app.goo.gl/mdwnERSLTKmR11q96" target="_blank" class="btn-maps" data-aos="zoom-in">Gunakan Google Maps</a>
+  <!-- Profile -->
+  <section class="profile">
+    <div class="card">
+      <h2 class="section-title" data-aos="zoom-in">Assalamu’alaikum Wr. Wb.</h2>
+      <p class="pembuka" data-aos="zoom-in">
+        Dengan Memohon Rahmat Dan Ridho Allah SWT Yang Telah Menciptakan Makhluk–Nya Secara Berpasang–Pasangan, 
+        Kami Bermaksud Menyelenggarakan Pernikahan Kami.
+      </p>
+      <div class="couple">
+        <div class="person" data-aos="zoom-in">
+          <img src="images/danang.jpg" alt="Danang">
+          <h2 data-aos="zoom-in">Danang</h2>
+          <!-- <h4>Herdiawan</h4> -->
+          <p data-aos="zoom-in">Putra Dari Keluarga<br>Bpk. Sobari (Alm) & Ibu Maniyah</p>
+        </div>
+        <div class="icon" data-aos="zoom-in">
+          <img src="images/rings.png" alt="Cincin" />
+        </div>
+        <div class="person" data-aos="zoom-in">
+          <img src="images/yeni.jpg" alt="Yeni">
+          <h2 data-aos="zoom-in">Lesyaeni</h2>
+          <!-- <h4>Riska Awalia Inayati</h4> -->
+          <p data-aos="zoom-in">Putri Dari Keluarga<br>Bpk. Caryo & Ibu Kartumi</p>
+        </div>
       </div>
     </div>
   </section>
+  <div class="spacer"></div>
+
+  <!-- Detail Section -->
+  <section>
+    <div class="event">
+      <div class="event-box">
+        <h2 data-aos="zoom-in">Akad Nikah</h2>
+        <p data-aos="zoom-in">Rabu, 01 Oktober 2025</p>
+        <span class="time" data-aos="zoom-in">Pukul 10:00 WIB</span>
+      </div><br>
+      <div class="event-box">
+        <h2 data-aos="zoom-in">Resepsi</h2>
+        <div class="date-box">
+          <span class="day" data-aos="zoom-in">RABU</span>
+          <span class="number" data-aos="zoom-in">01</span>
+          <span class="month" data-aos="zoom-in">OKTOBER 2025</span>
+        </div>
+        <span class="time" data-aos="zoom-in">Pukul 10:00 – Selesai</span>
+      </div><br>
+      <div class="event-box">
+        <h3 data-aos="zoom-in">Kediaman Mempelai Wanita</h3>
+        <p data-aos="zoom-in">Dsn. Gantungan RT 02 RW 07, Ds. Gunungjaya</p>
+        <p data-aos="zoom-in">Kec. Belik, Kab. Pemalang</p><br>
+        <div class="maps">
+            <div class="map-container" data-aos="zoom-in">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d216001.1704800485!2d109.47830904089396!3d-7.106602693302833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fe50a8284f479%3A0x8197832684622708!2sIrwan%20Cell!5e0!3m2!1sid!2sid!4v1757121227383!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <a href="https://maps.app.goo.gl/ZhKYbpz8kovkh6179" target="_blank" class="btn-maps" data-aos="zoom-in">Gunakan Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="spacer"></div>
 
   <!-- Our Story Section -->
-  <section class="timeline" id="our-story">
-  <h2 class="section-title" data-aos="zoom-in">Our Story</h2>
-  <p class="section-subtitle" data-aos="zoom-in">Perjalanan kisah cinta kami</p>
+    <section class="timeline" id="our-story">
+    <h2 class="section-title" data-aos="zoom-in">Our Story</h2>
+    <p class="section-subtitle" data-aos="zoom-in">Perjalanan kisah kami</p>
 
-  <div class="timeline-container">
-    <!-- Kenalan -->
-    <div class="timeline-item">
-      <div class="timeline-date"  data-aos="zoom-in">23 Juni 2025</div>
-      <div class="timeline-content" data-aos="zoom-in">
-        <img src="images/kenalan.webp" alt="Kenalan" data-aos="zoom-in">
-        <h3 data-aos="zoom-in">*Kenalan*</h3>
-        <p data-aos="zoom-in">Dibawah pohon cemara taman cempaka menjadi saksi kami dipertemukan.</p>
+    <div class="timeline-container">
+      <!-- Kenalan -->
+      <div class="timeline-item">
+       <!--  <div class="timeline-date"  data-aos="zoom-in">23 Juni 2025</div> -->
+        <div class="timeline-content" data-aos="zoom-in">
+          <img src="images/ourstory1.jpg" alt="Kenalan" data-aos="zoom-in"><br><br>
+          <h3 data-aos="zoom-in">Singkat Cerita</h3><br>
+          <p data-aos="zoom-in">Awal bertemu di tahun 2020 kenal di sosmed hingga kami memutuskan untuk bertunangan di tahun 2025 dan dengan restu orang tua, kami melangkah ke jenjang pernikahan di tahun 2025.</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Tunangan -->
-    <div class="timeline-item">
-      <div class="timeline-date" data-aos="zoom-in">26 Juli 2025</div>
-      <div class="timeline-content" data-aos="zoom-in">
-        <img src="images/tunangan.webp" alt="Tunangan" data-aos="zoom-in">
-        <h3 data-aos="zoom-in">*Tunangan*</h3>
-        <p data-aos="zoom-in">Banyaknya persamaan dan kecocokan membuat kami memutuskan untuk serius dalam hubungan.</p>
+      <!-- 
+      <div class="timeline-item">
+        <div class="timeline-date" data-aos="zoom-in">26 Juli 2025</div>
+        <div class="timeline-content" data-aos="zoom-in">
+          <img src="images/tunangan.webp" alt="Tunangan" data-aos="zoom-in">
+          <h3 data-aos="zoom-in">*Tunangan*</h3>
+          <p data-aos="zoom-in">Banyaknya persamaan dan kecocokan membuat kami memutuskan untuk serius dalam hubungan.</p>
+        </div>
       </div>
-    </div>
-
-    <!-- Menikah -->
-    <div class="timeline-item">
-      <div class="timeline-date" data-aos="zoom-in">20 Juli 2026</div>
-      <div class="timeline-content" data-aos="zoom-in">
-        <img src="images/menikah.webp" alt="Menikah" data-aos="zoom-in">
-        <h3 data-aos="zoom-in">*Menikah*</h3>
-        <p data-aos="zoom-in">Dengan restu orang tua, kami melangkah ke jenjang pernikahan.</p>
+      <div class="timeline-item">
+        <div class="timeline-date" data-aos="zoom-in">20 Juli 2026</div>
+        <div class="timeline-content" data-aos="zoom-in">
+          <img src="images/menikah.webp" alt="Menikah" data-aos="zoom-in">
+          <h3 data-aos="zoom-in">*Menikah*</h3>
+          <p data-aos="zoom-in">Dengan restu orang tua, kami melangkah ke jenjang pernikahan.</p>
+        </div>
       </div>
+      -->
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Quote Section -->
   <section class="quote">
@@ -109,22 +150,25 @@
   </section>
 
   <!-- Gallery Section -->
-  <div class="container">
-    <section class="gallery">
+  <section>
+    <div class="container">
+    <div class="gallery">
       <h2 data-aos="zoom-in">Our Gallery</h2>
       <p class="subtitle" data-aos="zoom-in">
         Beberapa kenangan indah dalam perjalanan cinta kami.
       </p><br>
       <div class="gallery-grid">
-        <img src="images/galeri1.webp" alt="Memory 1" class="item1" data-aos="zoom-in">
-        <img src="images/galeri2.webp" alt="Memory 2" class="item2" data-aos="zoom-in">
-        <img src="images/galeri3.webp" alt="Memory 3" class="item3" data-aos="zoom-in">
-        <img src="images/galeri4.webp" alt="Memory 4" class="item4" data-aos="zoom-in">
-        <img src="images/galeri5.webp" alt="Memory 5" class="item5" data-aos="zoom-in">
-        <img src="images/galeri6.webp" alt="Memory 6" class="item6" data-aos="zoom-in">
+        <img src="images/galeri1.jpg" alt="Memory 1" class="item1" data-aos="zoom-in">
+        <img src="images/galeri2.jpg" alt="Memory 2" class="item2" data-aos="zoom-in">
+        <img src="images/galeri3.jpg" alt="Memory 3" class="item3" data-aos="zoom-in">
+        <img src="images/galeri4.jpg" alt="Memory 4" class="item4" data-aos="zoom-in">
+        <img src="images/galeri5.jpg" alt="Memory 5" class="item5" data-aos="zoom-in">
+        <img src="images/galeri6.jpg" alt="Memory 6" class="item6" data-aos="zoom-in">
       </div>
-    </section>
+    </div>
   </div>
+  </section>
+  <div class="spacer"></div> 
 
   <!-- Section Countdown -->
 <section class="countdown">
@@ -149,11 +193,12 @@
     </div>
   </div>
 </section>
+<div class="spacer"></div>
 
 <!-- RSVP -->
 <section class="rsvp">
   <h2 data-aos="zoom-in">Konfirmasi Kehadiran</h2>
-  <p class="subtitle" data-aos="zoom-in">Berikan ucapannya disini ya 😊</p><br>
+  <p class="subtitle" data-aos="zoom-in">Kirimkan Ucapan Dan Doa Restu</p><br>
   <form id="ucapanForm" data-aos="zoom-in">
     <input type="text" id="nama" placeholder="Nama" required />
     <select id="kehadiran" required>
@@ -173,12 +218,12 @@
   <!-- Send Gift -->
   <section class="gift-section">
     <h2 class="section-title" data-aos="zoom-in">Titip Hadiah</h2>
-    <p class="gift-text" data-aos="zoom-in">
+    <p class="gift-text" data-aos="zoom-in" data-aos="zoom-in">
       Doa restu Bapak/Ibu sekalian merupakan karunia yang sangat berarti bagi kami. 
       Dan jika memberi merupakan ungkapan tanda kasih, Bapak/Ibu dapat memberi kado 
       secara cashless. Sebelumnya saya ucapkan terima kasih yang sebesar besarnya.
     </p>
-    <p class="gift-note" data-aos="zoom-in">
+    <p class="note" data-aos="zoom-in" data-aos="zoom-in">
       Note: Terdapat pilihan untuk menyembunyikan daftar rekening, 
       dan akan muncul ketika klik tombol
     </p>
@@ -187,29 +232,36 @@
     <!-- List rekening -->
     <div id="account-list" class="hidden">
       <div class="account-card">
-        <img src="images/bca.webp" alt="BCA" class="bank-logo">
+        <img src="images/bri.webp" alt="BRI" class="bank-logo">
         <div class="account-info">
-          <p class="account-number" id="acc-bca">12345678</p>
-          <p class="account-name">Iwan</p>
+          <p class="account-number" id="acc-danang">6760 0101 6038 530</p>
+          <p class="account-name">Danang</p>
         </div>
-        <button class="copy-btn" onclick="copyText('acc-bca')">📋 Copy</button>
+        <button class="copy-btn" onclick="copyText('acc-danang')">📋 Copy</button>
       </div>
       <div class="account-card">
-        <img src="images/bsi.webp" alt="Bank Sinarmas" class="bank-logo">
+        <img src="images/bri.webp" alt="Bank BRI" class="bank-logo">
         <div class="account-info">
-          <p class="account-number" id="acc-sinarmas">0982309823</p>
-          <p class="account-name">Ifah</p>
+          <p class="account-number" id="acc-lesyaeni">7822 0100 6254 537</p>
+          <p class="account-name">Lesyaeni</p>
         </div>
-        <button class="copy-btn" onclick="copyText('acc-sinarmas')">📋 Copy</button>
+        <button class="copy-btn" onclick="copyText('acc-lesyaeni')">📋 Copy</button>
       </div>
     </div>
   </section>
 
   <!-- Akhir -->
-  <section>
-    <div class="gift-section" data-aos="zoom-in">
-      <h2 class="section-title" data-aos="zoom-in">Terimakasih Atas Doa dan Restunya</h2><br>
-      <p>Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do’a restu kepada kami</p>
+  <section class="closing">
+    <div class="closing-content">
+      <p class="closing-text" data-aos="zoom-in">
+        Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami
+      </p>
+      <p class="closing-greeting" data-aos="zoom-in">Kami Yang Berbahagia,</p>
+      <h2 class="closing-names" data-aos="zoom-in">Danang & Lesyaeni</h2><br>
+      <div class="closing-image" data-aos="zoom-in">
+        <img src="images/akhir.jpg" alt="Danang & Lesyaeni">
+      </div>
+      <h3 class="section-title" data-aos="zoom-in">Wassalamu’alaikum Wr. Wb.</h3>
     </div>
   </section>
 
