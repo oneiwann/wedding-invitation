@@ -86,7 +86,7 @@ section{
 /* Hero Section */
 .hero {
   position: relative;
-  background: url("images/pasangan3.JPG") center/cover no-repeat;
+  background: url("images/pasangan3.webp") center/cover no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
